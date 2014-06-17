@@ -1,0 +1,4 @@
+link structure for queries:
+https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/[insert summoner id here]?api_key=[insert api key here]
+
+Alfred's api key: 5ea162cb-a47a-4515-b12d-bcd27e1ac3ae
