@@ -1,5 +1,6 @@
 var summonerName = "rxneggroll";
 var apiKey = "5ea162cb-a47a-4515-b12d-bcd27e1ac3ae";
+var region = "na"
 var summonerId;
 	/*
 	Sample response body
@@ -13,6 +14,35 @@ var summonerId;
 	}}
 	Link: https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/rxneggroll?api_key=5ea162cb-a47a-4515-b12d-bcd27e1ac3ae
 	*/
+	
+/*
+*==================================================================
+* THIS RETURNS SUMMONER ID FROM SUMMONER NAME
+*==================================================================
+*/	
+function returnSummonerID(summonerName) {
+	var APIlink = "https://na.api.pvp.net/api/lol/" + region + "/v1.4/summoner/by-name/" + summonerName + "?api_key=" + apiKey;
+	var myRequest = new XMLHttpRequest();
+	myRequest.open("GET", APIlink, false);
+	myRequest.send();
+	var responseObj = JSON.parse(myRequest.responseText);
+	return responseObj[summonerName].id;	
+}
+	
+/*
+*==================================================================
+* THIS RETURNS SUMMONER NAME FROM SUMMONER ID
+*==================================================================
+*/
+function returnSummonerName(summonerID) {
+	var APIlink = "https://na.api.pvp.net/api/lol/" + region + "/v1.4/summoner/" + summonerID + "?api_key=" + apiKey;
+	var myRequest = new XMLHttpRequest();
+	myRequest.open("GET", APIlink, false);
+	myRequest.send();
+	var responseObj = JSON.parse(myRequest.responseText);
+	return responseObj.[summonerID].name;
+}
+	
 /*
 *==================================================================
 * THIS RETURNS SUMMONER INFO!
@@ -85,6 +115,8 @@ function getSummonerNormalsStats() {
 	document.getElementById("normsCS").innerHTML = "<h3>Ranked Kills: </h3>" + "<p>" + responseObj.playerStatSummaries[7].aggregatedStats.totalMinionKills + "</p>";
 	document.getElementById("normsAssists").innerHTML = "<h3>Ranked Assists: </h3>" + "<p>" + responseObj.playerStatSummaries[7].aggregatedStats.totalAssists + "</p>";
 }
+
+
 
 
 getSummonerName();
