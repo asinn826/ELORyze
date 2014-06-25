@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+<head>
+	<title>API Calls</title>
+	<style type="text/css">body { font-family: arial,sans-serif;} </style>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+	<script language="JavaScript" type="text/javascript" src="./js/jquery-1.11.1.js"></script>
+	<script src="./js/jquery-1.11.1.js"></script>
+</head>
+
+<body>
+	<h1>Riot API Call results</h1>	
+
+	<div id="results"></div>
+	<div id="summonerName"></div>
+	<div id="summonerId"></div>
+	<div id="summonerIconNum"></div>
+	<div id="summonerLvl"></div>
+
+	<script>
+	/*
+	Sample response body
+
+	{"rxneggroll": {
+   "id": 25729367,
+   "name": "RxN EggRoll",
+   "profileIconId": 19,
+   "revisionDate": 1403028570000,
+   "summonerLevel": 30
+	}}
+	Link: https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/rxneggroll?api_key=5ea162cb-a47a-4515-b12d-bcd27e1ac3ae
+	*/
+
+	function getSummonerName() {
+		var APIlink = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/rxneggroll?api_key=5ea162cb-a47a-4515-b12d-bcd27e1ac3ae";
+		var myRequest = new XMLHttpRequest();
+		myRequest.open("GET", APIlink, false);
+		myRequest.send();
+		var responseObj = JSON.parse(myRequest.responseText);
+		document.getElementById("summonerName").innerHTML = "<h3>Summoner Name: </h3>" + "<p>" + responseObj.rxneggroll.name + "</p>";
+	}
+
+	function getSummonerId() {
+		var APIlink = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/rxneggroll?api_key=5ea162cb-a47a-4515-b12d-bcd27e1ac3ae";
+		var myRequest = new XMLHttpRequest();
+		myRequest.open("GET", APIlink, false);
+		myRequest.send();
+		var responseObj = JSON.parse(myRequest.responseText);
+		document.getElementById("summonerId").innerHTML = "<h3>Summoner Id: </h3>" + "<p>" + responseObj.rxneggroll.id + "</p>";
+	}
+
+	function getSummonerIconNum() {
+		var APIlink = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/rxneggroll?api_key=5ea162cb-a47a-4515-b12d-bcd27e1ac3ae";
+		var myRequest = new XMLHttpRequest();
+		myRequest.open("GET", APIlink, false);
+		myRequest.send();
+		var responseObj = JSON.parse(myRequest.responseText);
+		document.getElementById("summonerIconNum").innerHTML = "<h3>Summoner Icon Number: </h3>" + "<p>" + responseObj.rxneggroll.profileIconId + "</p>";
+	}
+
+	function getSummonerLvl() {
+		var APIlink = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/rxneggroll?api_key=5ea162cb-a47a-4515-b12d-bcd27e1ac3ae";
+		var myRequest = new XMLHttpRequest();
+		myRequest.open("GET", APIlink, false);
+		myRequest.send();
+		var responseObj = JSON.parse(myRequest.responseText);
+		document.getElementById("summonerLvl").innerHTML = "<h3>Summoner Level: </h3>" + "<p>" + responseObj.rxneggroll.summonerLevel + "</p>";
+	}
+	getSummonerName();
+	getSummonerId();
+	getSummonerIconNum();
+	getSummonerLvl();
+
+	</script>
+</body>
+</html>
