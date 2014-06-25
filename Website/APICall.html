@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+<head>
+	<title>API Calls</title>
+	<style type="text/css">body { font-family: arial,sans-serif;} </style>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+	<script language="JavaScript" type="text/javascript" src="./js/jquery-1.11.1.js"></script>
+	<script src="./js/jquery-1.11.1.js"></script>
+</head>
+
+<body>
+	<h1>Riot API Call results</h1>	
+
+	<div id="results"></div>
+	<div id="images"></div>
+
+	<script>
+	/*
+	Sample response body
+	{"rxneggroll": {
+   "id": 25729367,
+   "name": "RxN EggRoll",
+   "profileIconId": 19,
+   "revisionDate": 1403028570000,
+   "summonerLevel": 30
+	}}
+	Link: https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/rxneggroll?api_key=5ea162cb-a47a-4515-b12d-bcd27e1ac3ae
+	*/
+
+	//Construct the request
+	// deosn't work
+	function loadSummoner(summonerName) {
+		var api_key = "5ea162cb-a47a-4515-b12d-bcd27e1ac3ae";
+		var myUrl = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/"
+		var	myUrlEnd = summonerName + "?api_key=" + api_key;
+		var URLcomplete = myUrl + myUrlEnd;
+		// Request the JSON and parse it
+		$.ajax({
+			type: "GET",
+			url: myUrl,
+			data: myUrlEnd,
+			success:function(msg) {
+				document.write(msg);
+			}
+		});
+	}
+
+	//in progress
+	function loadAPI() {
+		var APIlink = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/rxneggroll?api_key=5ea162cb-a47a-4515-b12d-bcd27e1ac3ae";
+		$.getJSON(APIlink, function(data) {
+			("<p>ID: " + data + "</p>").appendTo$("#results");
+		});
+	}
+/*
+//from some website, seems to work atm
+	(function() {
+		var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+		$.getJSON( flickerAPI, {
+		tags: "mount rainier",
+		tagmode: "any",
+		format: "json"
+		})
+		.done(function( data ) {
+		$.each( data.items, function( i, item ) {
+			$( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+				if ( i === 3 ) {
+					return false;
+				}
+			});
+		});
+	})();
+*/
+	loadsummoner("rxneggroll");
+	loadAPI();
+
+
+	</script>
+
+	<button>Click here</button>
+</body>
+</html>
