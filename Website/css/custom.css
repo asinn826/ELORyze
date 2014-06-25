@@ -15,3 +15,12 @@
 .content-main {
     
 }
+
+.line-dark {
+	width: 50%;
+    border-color: #000000;
+}
+
+.main-font {
+	font-family: "Agency FB", sans-serif;
+}

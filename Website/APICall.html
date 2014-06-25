@@ -17,6 +17,7 @@
 	<script>
 	/*
 	Sample response body
+
 	{"rxneggroll": {
    "id": 25729367,
    "name": "RxN EggRoll",
@@ -37,10 +38,10 @@
 		// Request the JSON and parse it
 		$.ajax({
 			type: "GET",
-			url: myUrl,
-			data: myUrlEnd,
-			success:function(msg) {
-				document.write(msg);
+			url: URLcomplete,
+			//data: myUrlEnd,
+			success:function(data) {
+				document.write(data);
 			}
 		});
 	}
@@ -49,8 +50,12 @@
 	function loadAPI() {
 		var APIlink = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/rxneggroll?api_key=5ea162cb-a47a-4515-b12d-bcd27e1ac3ae";
 		$.getJSON(APIlink, function(data) {
-			("<p>ID: " + data + "</p>").appendTo$("#results");
+			$("<p>ID: " + data + "</p>").appendTo("#results");
 		});
+	}
+
+	function parseJSON() {
+		var link = "https://na.api.pvp.net/api/lol/na/v1.4/summoner/by-name/rxneggroll?api_key=5ea162cb-a47a-4515-b12d-bcd27e1ac3ae";
 	}
 /*
 //from some website, seems to work atm
