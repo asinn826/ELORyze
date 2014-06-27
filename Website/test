@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+<head>
+	<title>API Calls</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+	<link href="./css/bootstrap.css" rel="stylesheet" />
+	<link href="./css/custom.css" rel="stylesheet" />
+</head>
+<body class="center	main-font">
+
 <form action="http://www.google.com/search"
       method="GET"
       target="_blank">
@@ -5,3 +15,8 @@
                          value="Cookbook" size="31" maxlength="255">
 	<input   type="submit"   value="Google Search">
 </form>
+
+
+<script src="js/parsing.js"></script>
+</body>
+</html>
