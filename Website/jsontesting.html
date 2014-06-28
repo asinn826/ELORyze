@@ -1,44 +1,30 @@
 <!DOCTYPE html>
 <html lang="en-ca">
 <head>
-	<title>API Calls</title>
+	<title>ELORyze Search</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+
+	<!-- CSS -->
 	<link href="./css/bootstrap.css" rel="stylesheet" />
 	<link href="./css/custom.css" rel="stylesheet" />
+
 </head>
 
 <body class="center	main-font">
-	<h1 class="banner-center banner-text">Riot API Call results</h1>	
+	<h1 class="banner-center banner-text">ELORyze Search</h1>
+	<hr class="line-dark">	
 
-<div id="summoner-info">
-<h2>Summoner info</h2>
-<hr class="line-dark">
-	<div id="results"></div>
-	<div id="summonerName"></div>
-	<div id="summonerId"></div>
-	<div id="summonerIconNum"></div>
-	<div id="summonerLvl"></div>
-</div>
+	<div class="search-input">
+	<form action="searchResults.html" method="get">
+	<span>
+		<div class="enter-name">Enter a Summoner Name:</div>
 
+		<input type="text" class="input-large search-query" name="query" id="query"/>
 
-<div id="ranked-stats">
-<h2>Ranked Stats</h2>
-<hr class="line-dark">
-	<div id="rankedwins"></div>
-	<div id="rankedlosses"></div>
-	<div id="rankedkills"></div>
-	<div id="rankedassists"></div>
-</div>
+		<button type="submit" class="btn" id="search_button"><img src="./images/arrow.png" style="height:1em;" /></button>
+	</span>
+	</form>
+	</div>
 
-<div id="norms-stats">
-<h2>Normals Stats</h2>
-<hr class="line-dark">
-	<div id="normsWins"></div>
-	<div id="normsKills"></div>
-	<div id="normsCS"></div>
-	<div id="normsAssists"></div>
-</div>
-
-<script src="js/parsing.js"></script>
 </body>
 </html>
