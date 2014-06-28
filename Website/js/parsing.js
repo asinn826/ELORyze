@@ -5,7 +5,8 @@ var apiKey3 = "671a7a2c-2d12-4d1c-a6d1-d13a87be1cb3"; // alfred's other api key
 var region = "na";
 var summonerId;
 	/*
-	Sample response body
+
+	Sample Response Body
 
 	{"rxneggroll": {
    "id": 25729367,
@@ -52,18 +53,18 @@ return responseObj.[summonerID].name;
 * jacked the get QueryVariable function from http://css-tricks.com/snippets/javascript/get-url-variables/
 *==================================================================
 */
-function getQueryVariable(variable)
-{
+function getQueryVariable(variable) {
    var query = window.location.search.substring(1);
    var vars = query.split("?");
-   for (var i=0; i<vars.length; i++) {
+   for (var i = 0; i < vars.length; i++) {
            var pair = vars[i].split("=");
-           if(pair[0] == variable){
+           if(pair[0] == variable) {
            		return pair[1];
            }
    }
    return(false);
 }
+
 function processSearch() {
 	summonerName = getQueryVariable("query");
 }
@@ -150,6 +151,11 @@ function getSummonerNormalsStats() {
 }
 
 
+/*
+*==================================================================
+* Function calls
+*==================================================================
+*/
 
 processSearch();
 getSummonerName();

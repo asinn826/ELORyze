@@ -16,13 +16,18 @@
     
 }
 
+.custom-button:hover {
+	color: #757A7D;
+}
+
 .enter-name {
-	font-size: 16pt;
+	font-size: 20pt;
 }
 
 .line-dark {
 	width: 50%;
     border-color: #000000;
+    align: center;
 }
 
 .main-font {
