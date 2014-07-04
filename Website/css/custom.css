@@ -1,5 +1,7 @@
 .banner-center {
     align-content: center;
+    background-size: 50%;
+    background-position: center;
 }
 
 .banner-text {
@@ -21,7 +23,7 @@
 }
 
 .enter-name {
-	font-size: 20pt;
+	font-size: 24pt;
 }
 
 .line-dark {
@@ -32,4 +34,8 @@
 
 .main-font {
 	font-family: "Agency FB", sans-serif;
+}
+
+.search-query {
+    width: 150px;
 }
