@@ -44,7 +44,6 @@ function retrieveInfo() {
 }
 retrieveInfo();
 
-
 /*
 *==================================================================
 * setSummonerIdVar() SETS SUMMONERID
@@ -106,6 +105,20 @@ function getGameType() {
 	}
 }
 
+/*
+*==================================================================
+* getGameMode() RETURNS GAME MODE! (div id = "gameMode")
+*==================================================================
+*/
+function getGameMode() {
+	if(responseObj.game.gameMode == "CLASSIC"){
+		document.getElementById("gameMode").innerHTML = "<h3>Game Mode: </h3>" + "<p>" + "Classic" + "</p>";
+	}else if(responseObj.game.gameMode == "ARAM"){
+		document.getElementById("gameMode").innerHTML = "<h3>Game Mode: </h3>" + "<p>" + "ARAM" + "</p>";
+	}else{
+		document.getElementById("gameMode").innerHTML = "<h3>Game Mode: </h3>" + "<p>" + "Unknown Game Mode!" + "</p>";
+	}
+}
 
 
 /*
