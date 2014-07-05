@@ -91,9 +91,19 @@ function getMapType() {
 *==================================================================
 */
 function getGameType() {
-	if(responseObj.game.gameType == "CUSTOM_GAME") {
-	
+	if(responseObj.game.gameType == "NORMAL_GAME") {
+		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Normal" + "</p>";
+	}else if(responseObj.game.gameType == "RANKED_GAME") {
+		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Ranked" + "</p>";
 	}else if(responseObj.game.gameType == "TUTORIAL_GAME") {
+		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Tutorial" + "</p>";
+	}else if(responseObj.game.gameType == "CUSTOM_GAME") {
+		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Custom" + "</p>";
+	}else if(responseObj.game.gameType == "MATCHED_GAME") {
+		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Uknown Matched" + "</p>";
+	}else{
+		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Unkown Game Type!" + "</p>";	
+	}
 }
 
 
