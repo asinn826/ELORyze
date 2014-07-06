@@ -122,14 +122,53 @@ function getGameMode() {
 
 /*
 *==================================================================
-* getTeam1Player1() RETURNS PLAYER 1 FROM TEAM 1! (div id = "team1Player1")
+* getTeam1Player1() - getTeam1Player5 RETURNS PLAYER 1 through 5 FROM TEAM 1! (div id = "team1Player1" and so forth)
 *==================================================================
 */
 function getTeam1Player1() {
 	document.getElementById("team1Player1").innerHTML = "<h3>Player 1 from Team 1: </h3>" + "<p>" + responseObj.game.teamOne.array[0].summonerName + "</p>";
 }
 
+function getTeam1Player2() {
+	document.getElementById("team1Player2").innerHTML = "<h3>Player 2 from Team 1: </h3>" + "<p>" + responseObj.game.teamOne.array[1].summonerName + "</p>";
+}
 
+function getTeam1Player3() {
+	document.getElementById("team1Player3").innerHTML = "<h3>Player 3 from Team 1: </h3>" + "<p>" + responseObj.game.teamOne.array[2].summonerName + "</p>";
+}
+
+function getTeam1Player4() {
+	document.getElementById("team1Player4").innerHTML = "<h3>Player 4 from Team 1: </h3>" + "<p>" + responseObj.game.teamOne.array[3].summonerName + "</p>";
+}
+
+function getTeam1Player5() {
+	document.getElementById("team1Player5").innerHTML = "<h3>Player 5 from Team 1: </h3>" + "<p>" + responseObj.game.teamOne.array[4].summonerName + "</p>";
+}
+
+/*
+*==================================================================
+* getTeam2Player1() - getTeam2Player5 RETURNS PLAYER 1 through 5 FROM TEAM 2! (div id = "team2Player1" and so forth)
+*==================================================================
+*/
+function getTeam2Player1() {
+	document.getElementById("team2Player1").innerHTML = "<h3>Player 1 from Team 2: </h3>" + "<p>" + responseObj.game.teamTwo.array[0].summonerName + "</p>";
+}
+
+function getTeam2Player2() {
+	document.getElementById("team2Player2").innerHTML = "<h3>Player 2 from Team 2: </h3>" + "<p>" + responseObj.game.teamTwo.array[1].summonerName + "</p>";
+}
+
+function getTeam2Player3() {
+	document.getElementById("team2Player3").innerHTML = "<h3>Player 3 from Team 2: </h3>" + "<p>" + responseObj.game.teamTwo.array[2].summonerName + "</p>";
+}
+
+function getTeam2Player4() {
+	document.getElementById("team2Player4").innerHTML = "<h3>Player 4 from Team 2: </h3>" + "<p>" + responseObj.game.teamTwo.array[3].summonerName + "</p>";
+}
+
+function getTeam2Player5() {
+	document.getElementById("team2Player5").innerHTML = "<h3>Player 5 from Team 2: </h3>" + "<p>" + responseObj.game.teamTwo.array[4].summonerName + "</p>";
+}
 
 /*
 *=====================================================================================================================================
