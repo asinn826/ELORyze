@@ -1,5 +1,5 @@
 var summonerName;
-var mashApiKey = "6ME20pU81BmbLcrJu1dTG8sWuq2B6b2A"; // joon's mashape production api key
+var mashApiKey = "6ME20pU81BmbLcrJu1dTG8sWuq2B6b2A"; // joon's MashApe production api key
 var riotApiKey = "a3fe81d6-1dbc-4b3b-9155-0064a9a76fbe"; //joon's Riot api key
 var region = "NA";
 var summonerId;
@@ -119,6 +119,16 @@ function getGameMode() {
 		document.getElementById("gameMode").innerHTML = "<h3>Game Mode: </h3>" + "<p>" + "Unknown Game Mode!" + "</p>";
 	}
 }
+
+/*
+*==================================================================
+* getTeam1Player1() RETURNS PLAYER 1 FROM TEAM 1! (div id = "team1Player1")
+*==================================================================
+*/
+function getTeam1Player1() {
+	document.getElementById("team1Player1").innerHTML = "<h3>Player 1 from Team 1: </h3>" + "<p>" + responseObj.game.teamOne.array[0].summonerName + "</p>";
+}
+
 
 
 /*
