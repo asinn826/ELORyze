@@ -1,5 +1,10 @@
-var summonerName;
+//<<<<<<< Updated upstream
+var summonerName = soyaboy0;
 var mashApiKey = "6ME20pU81BmbLcrJu1dTG8sWuq2B6b2A"; // joon's MashApe production api key
+//=======
+var summonerName = "chinboy";
+var mashApiKey = "6ME20pU81BmbLcrJu1dTG8sWuq2B6b2A"; // joon's mashape production api key
+//>>>>>>> Stashed changes
 var riotApiKey = "a3fe81d6-1dbc-4b3b-9155-0064a9a76fbe"; //joon's Riot api key
 var region = "NA";
 var summonerId;
@@ -27,8 +32,10 @@ function processSearch() {
 	summonerName = getQueryVariable("query");
 }
 
-processSearch();
-var apiLink = "https://community-league-of-legends.p.mashape.com/api/v1.0/NA/summoner/retrieveInProgressSpectatorGameInfo/" + summonerName; //Mashape url for retrieveInProgressSpectatorGameInfo
+//processSearch();
+
+var apiLink = "https://community-league-of-legends.p.mashape.com/api/v1.0/NA/summoner/retrieveInProgressSpectatorGameInfo/" + summonerName; 
+//Mashape url for retrieveInProgressSpectatorGameInfo
 
 /*
 *==================================================================
@@ -67,19 +74,19 @@ setSummonerIdVar();
 function getMapType() {
 	if(responseObj.game.mapId == "1"){
 		document.getElementById("mapType").innerHTML = "<h3>Map Type: </h3>" + "<p>" + "Summoner's Rift" + "</p>";
-	}else if(responseObj.game.mapId == "2"){
+	} else if(responseObj.game.mapId == "2"){
 		document.getElementById("mapType").innerHTML = "<h3>Map Type: </h3>" + "<p>" + "Summoner's Rift - Autumn" + "</p>";
-	}else if(responseObj.game.mapId == "3"){
+	} else if(responseObj.game.mapId == "3"){
 		document.getElementById("mapType").innerHTML = "<h3>Map Type: </h3>" + "<p>" + "The Proving Grounds" + "</p>";
-	}else if(responseObj.game.mapId == "4"){
+	} else if(responseObj.game.mapId == "4"){
 		document.getElementById("mapType").innerHTML = "<h3>Map Type: </h3>" + "<p>" + "Twisted Treeline - The Original" + "</p>";
-	}else if(responseObj.game.mapId == "8"){
+	} else if(responseObj.game.mapId == "8"){
 		document.getElementById("mapType").innerHTML = "<h3>Map Type: </h3>" + "<p>" + "The Crystal Scar" + "</p>";
-	}else if(responseObj.game.mapId == "10"){
+	} else if(responseObj.game.mapId == "10"){
 		document.getElementById("mapType").innerHTML = "<h3>Map Type: </h3>" + "<p>" + "Twisted Treeline" + "</p>";
-	}else if(responseObj.game.mapId == "12"){
+	} else if(responseObj.game.mapId == "12"){
 		document.getElementById("mapType").innerHTML = "<h3>Map Type: </h3>" + "<p>" + "Howling Abyss" + "</p>";
-	}else{
+	} else{
 		document.getElementById("mapType").innerHTML = "<h3>Map Type: </h3>" + "<p>" + "Unknown Map!" + "</p>";
 	}
 }
@@ -92,15 +99,15 @@ function getMapType() {
 function getGameType() {
 	if(responseObj.game.gameType == "NORMAL_GAME") {
 		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Normal" + "</p>";
-	}else if(responseObj.game.gameType == "RANKED_GAME") {
+	} else if(responseObj.game.gameType == "RANKED_GAME") {
 		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Ranked" + "</p>";
-	}else if(responseObj.game.gameType == "TUTORIAL_GAME") {
+	} else if(responseObj.game.gameType == "TUTORIAL_GAME") {
 		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Tutorial" + "</p>";
-	}else if(responseObj.game.gameType == "CUSTOM_GAME") {
+	} else if(responseObj.game.gameType == "CUSTOM_GAME") {
 		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Custom" + "</p>";
-	}else if(responseObj.game.gameType == "MATCHED_GAME") {
+	} else if(responseObj.game.gameType == "MATCHED_GAME") {
 		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Uknown Matched" + "</p>";
-	}else{
+	} else{
 		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Unkown Game Type!" + "</p>";	
 	}
 }
@@ -113,9 +120,9 @@ function getGameType() {
 function getGameMode() {
 	if(responseObj.game.gameMode == "CLASSIC"){
 		document.getElementById("gameMode").innerHTML = "<h3>Game Mode: </h3>" + "<p>" + "Classic" + "</p>";
-	}else if(responseObj.game.gameMode == "ARAM"){
+	} else if(responseObj.game.gameMode == "ARAM"){
 		document.getElementById("gameMode").innerHTML = "<h3>Game Mode: </h3>" + "<p>" + "ARAM" + "</p>";
-	}else{
+	} else{
 		document.getElementById("gameMode").innerHTML = "<h3>Game Mode: </h3>" + "<p>" + "Unknown Game Mode!" + "</p>";
 	}
 }
