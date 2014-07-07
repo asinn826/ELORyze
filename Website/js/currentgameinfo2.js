@@ -71,21 +71,21 @@ retrieveMashapeInfo();
 function setMapType() {
 	var mapID = mashObject.game.mapId;
 	if (mapID == "1") {
-		document.getElementById("mapType").innerHTML += "Summoner's Rift";
+		document.getElementById("mapType").innerHTML = "<strong>Map: </strong>" + "Summoner's Rift";
 	} else if (mapID == "2") {
-		document.getElementById("mapType").innerHTML += "Summoner's Rift - Autumn";
+		document.getElementById("mapType").innerHTML = "<strong>Map: </strong>" + "Summoner's Rift - Autumn";
 	} else if (mapID == "3") {
-		document.getElementById("mapType").innerHTML += "The Proving Grounds";
+		document.getElementById("mapType").innerHTML = "<strong>Map: </strong>" + "The Proving Grounds";
 	} else if (mapID == "4") {
-		document.getElementById("mapType").innerHTML += "Twisted Treeline - The Original";
+		document.getElementById("mapType").innerHTML = "<strong>Map: </strong>" + "Twisted Treeline - The Original" ;
 	} else if (mapID == "8") {
-		document.getElementById("mapType").innerHTML += "The Crystal Scar";
+		document.getElementById("mapType").innerHTML = "<strong>Map: </strong>" + "The Crystal Scar";
 	} else if (mapID == "10") {
-		document.getElementById("mapType").innerHTML += "Twisted Treeline";
+		document.getElementById("mapType").innerHTML = "<strong>Map: </strong>" + "Twisted Treeline" + "</p>";
 	} else if (mapID == "12") {
-		document.getElementById("mapType").innerHTML += "Howling Abyss";
+		document.getElementById("mapType").innerHTML = "<strong>Map: </strong>" + "Howling Abyss";
 	} else {
-		document.getElementById("mapType").innerHTML += "Unknown Map!";
+		document.getElementById("mapType").innerHTML = "<strong>Map: </strong>" + "Unknown Map!";
 	}
 }
 setMapType();
@@ -94,17 +94,17 @@ setMapType();
 function setGameType() {
 	var gameId = mashObject.game.gameType;
 	if (gameId == "NORMAL_GAME") {
-		document.getElementById("gameType").innerHTML += "<p>" + "Normal" + "</p>";
+		document.getElementById("gameType").innerHTML = "<strong>Game Type: </strong>" + "Normal";
 	} else if (gameId == "RANKED_GAME") {
-		document.getElementById("gameType").innerHTML += "<p>" + "Ranked" + "</p>";
+		document.getElementById("gameType").innerHTML = "<strong>Game Type: </strong>" + "Ranked";
 	} else if (gameId == "TUTORIAL_GAME") {
-		document.getElementById("gameType").innerHTML += "<p>" + "Tutorial" + "</p>";
+		document.getElementById("gameType").innerHTML = "<strong>Game Type: </strong>" + "Tutorial";
 	} else if (gameId == "CUSTOM_GAME") {
-		document.getElementById("gameType").innerHTML += "<p>" + "Custom" + "</p>";
+		document.getElementById("gameType").innerHTML = "<strong>Game Type: </strong>" + "Custom";
 	} else if (gameId == "MATCHED_GAME") {
-		document.getElementById("gameType").innerHTML += "<p>" + "Uknown Matched" + "</p>";
+		document.getElementById("gameType").innerHTML = "<strong>Game Type: </strong>" + "Uknown Matched";
 	} else {
-		document.getElementById("gameType").innerHTML += "<p>" + "Unkown Game Type!" + "</p>";	
+		document.getElementById("gameType").innerHTML = "<strong>Game Type: </strong>" + "Unkown Game Type!";	
 	}
 }
 setGameType();
