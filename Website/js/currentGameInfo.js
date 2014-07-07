@@ -1,8 +1,4 @@
-//<<<<<<< Updated upstream
-var summonerName = soyaboy0;
-var mashApiKey = "6ME20pU81BmbLcrJu1dTG8sWuq2B6b2A"; // joon's MashApe production api key
-//=======
-var summonerName = "chinboy";
+var summonerName = "AnnArbour";
 var mashApiKey = "6ME20pU81BmbLcrJu1dTG8sWuq2B6b2A"; // joon's mashape production api key
 //>>>>>>> Stashed changes
 var riotApiKey = "a3fe81d6-1dbc-4b3b-9155-0064a9a76fbe"; //joon's Riot api key
@@ -114,9 +110,10 @@ function getGameType() {
 
 /*
 *==================================================================
-* getGameMode() RETURNS GAME MODE! (div id = "gameMode")
+* getGameMode() RETURNS GAME MODE! (div id = "gameMode") ---DOESN'T SEEM TO WORK, COMMENTED OUT 7/6/14 BY ALFRED
 *==================================================================
 */
+/*
 function getGameMode() {
 	if(responseObj.game.gameMode == "CLASSIC"){
 		document.getElementById("gameMode").innerHTML = "<h3>Game Mode: </h3>" + "<p>" + "Classic" + "</p>";
@@ -126,6 +123,8 @@ function getGameMode() {
 		document.getElementById("gameMode").innerHTML = "<h3>Game Mode: </h3>" + "<p>" + "Unknown Game Mode!" + "</p>";
 	}
 }
+getGameMode();
+*/
 
 /*
 *==================================================================

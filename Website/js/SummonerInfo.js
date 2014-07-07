@@ -52,7 +52,7 @@ return responseObj.[summonerID].name;
 /*
 *==================================================================
 * Run this first to assign the query to a var
-* jacked the get QueryVariable function from http://css-tricks.com/snippets/javascript/get-url-variables/
+* jacked the getQueryVariable helper function from http://css-tricks.com/snippets/javascript/get-url-variables/
 *==================================================================
 */
 function getQueryVariable(variable) {
@@ -112,7 +112,6 @@ function getSummonerLvl() {
 	document.getElementById("summonerLvl").innerHTML = "<h3>Summoner Level: </h3>" + "<p>" + summonerObject[summonerName].summonerLevel + "</p>";
 }
 getSummonerLvl();
-
 
 /*
 *==================================================================

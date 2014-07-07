@@ -1,18 +1,70 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en-ca">
+<head>
+	<title>ELORyze Live Game Search</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
 
-<!-- Shows summoner name -->
-<div id="nameOfPlayer"></div>
+	<!-- CSS -->
+	<link href="./css/bootstrap.css" rel="stylesheet" />
+	<link href="./css/custom.css" rel="stylesheet" />
 
-<!-- Shows map type -->
-<div id="mapType"></div>
+	<!-- Favicons -->
+	<link rel="icon" href="favicons/favicon-new.ico">
+	<link rel="apple-touch-icon" sizes="64x64" href="favicons/favicon-new.png">
 
-<!-- Shows game type -->
-<div id="gameType"></div>
+</head>
+
+<body class="center	main-font">
+	<span>
+		<img src="./images/finallogo.png" height="10%" width="10%">
+		<h1 class="banner-center banner-text">ELORyze Search Results</h1>
+	</span>
+
+	<hr class="line-dark">
+	<div id="mapType">
+		<strong>Map: </strong>
+	</div>
+
+	<hr class="line-dark">
+	<div id="gameType">
+		<strong>Game Type: </strong>
+	</div>
+
+	<!-- <h2>Game Mode:</h2>
+	<hr class="line-dark">
+	<div id="gameMode"></div> -->
+
+	<hr class="line-dark">
+	<h2>Team 1 Players:</h2>
+	<hr class="line-dark">
+	<div id="team1">
+		<li id="team1Player1"></li>
+		<li id="team1Player2"></li>
+		<li id="team1Player3"></li>
+		<li id="team1Player4"></li>
+		<li id="team1Player5"></li>
+	</div>
+
+	<hr class="line-dark">
+	<h2>Team 2 Players:</h2>
+	<hr class="line-dark">
+	<div id="team1">
+		<li id="team2Player1"></li>
+		<li id="team2Player2"></li>
+		<li id="team2Player3"></li>
+		<li id="team2Player4"></li>
+		<li id="team2Player5"></li>
+	</div>
+
+
+
+
+	
+
+
+<!-- JavaScript -->
+<!-- <script src="./js/jquery1-11-1.js"></script> -->
+<script src="./js/currentgameinfo2.js"></script>
 
 </body>
-
-<script src="./js/currentGameInfo.js"></script>
-
-</html> 
+</html>
