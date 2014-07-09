@@ -177,6 +177,17 @@ function getTeam2Player5() {
 }
 
 /*
+*==================================================================
+* getTeam1Player1currRank() - getTeam1Player5currRank() RETURNS PLAYER 1 through 5 Current Season Ranks FROM TEAM 1! (div id = "team1Player1currRank" and so forth)
+*==================================================================
+*/
+function getTeam1Player1currRank() {
+//READ SKYPE FOR MORE INFO IF U HAVENT ALREADY	
+}
+
+
+
+/*
 *=====================================================================================================================================
 *                                             THIS IS JUST AN EXAMPLE. TESTING PURPOSES!
 *=====================================================================================================================================
