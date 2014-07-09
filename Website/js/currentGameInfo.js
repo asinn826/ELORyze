@@ -1,10 +1,23 @@
-var summonerName = "AnnArbour";
+var summonerName; //of queried player
 var mashApiKey = "6ME20pU81BmbLcrJu1dTG8sWuq2B6b2A"; // joon's mashape production api key
 //>>>>>>> Stashed changes
 var riotApiKey = "a3fe81d6-1dbc-4b3b-9155-0064a9a76fbe"; //joon's Riot api key
 var region = "NA";
-var summonerId;
-var responseObj;
+var summonerId; //of queried player
+var mashObj; //of queried player
+var riotObj; //of queried player
+
+var team1player1Id;
+var team1player2Id;
+var team1player3Id;
+var team1player4Id;
+var team1player5Id;
+
+var team2player1Id;
+var team2player2Id;
+var team2player3Id;
+var team2player4Id;
+var team2player5Id;
 
 /*
 *==================================================================
@@ -38,14 +51,14 @@ var apiLink = "https://community-league-of-legends.p.mashape.com/api/v1.0/NA/sum
 * RETRIEVES ALL CURRENT GAME INFO ONCE
 *==================================================================
 */
-function retrieveInfo() {
+function retrieveMashInfo() {
 	var myRequest = new XMLHttpRequest();
 	myRequest.open("GET", apiLink, false);
 	myRequest.setRequestHeader("X-Mashape-Key", mashApiKey);
 	myRequest.send();
-	responseObj = JSON.parse(myRequest.responseText);
+	mashObj = JSON.parse(myRequest.responseText);
 }
-retrieveInfo();
+retrieveMashInfo();
 
 /*
 *==================================================================
@@ -58,7 +71,7 @@ function setSummonerIdVar() {
 	myRequest.open("GET", APIlink, false);
 	myRequest.send();
 	var responseObj = JSON.parse(myRequest.responseText);
-	summonerId = responseObj[summonerName].id;
+	summonerId = riotObj[summonerName].id;
 }
 setSummonerIdVar();
 
@@ -68,19 +81,19 @@ setSummonerIdVar();
 *==================================================================
 */
 function getMapType() {
-	if(responseObj.game.mapId == "1"){
+	if(mashObj.game.mapId == "1"){
 		document.getElementById("mapType").innerHTML = "<h3>Map Type: </h3>" + "<p>" + "Summoner's Rift" + "</p>";
-	} else if(responseObj.game.mapId == "2"){
+	} else if(mashObj.game.mapId == "2"){
 		document.getElementById("mapType").innerHTML = "<h3>Map Type: </h3>" + "<p>" + "Summoner's Rift - Autumn" + "</p>";
-	} else if(responseObj.game.mapId == "3"){
+	} else if(mashObj.game.mapId == "3"){
 		document.getElementById("mapType").innerHTML = "<h3>Map Type: </h3>" + "<p>" + "The Proving Grounds" + "</p>";
-	} else if(responseObj.game.mapId == "4"){
+	} else if(mashObj.game.mapId == "4"){
 		document.getElementById("mapType").innerHTML = "<h3>Map Type: </h3>" + "<p>" + "Twisted Treeline - The Original" + "</p>";
-	} else if(responseObj.game.mapId == "8"){
+	} else if(mashObj.game.mapId == "8"){
 		document.getElementById("mapType").innerHTML = "<h3>Map Type: </h3>" + "<p>" + "The Crystal Scar" + "</p>";
-	} else if(responseObj.game.mapId == "10"){
+	} else if(mashObj.game.mapId == "10"){
 		document.getElementById("mapType").innerHTML = "<h3>Map Type: </h3>" + "<p>" + "Twisted Treeline" + "</p>";
-	} else if(responseObj.game.mapId == "12"){
+	} else if(mashObj.game.mapId == "12"){
 		document.getElementById("mapType").innerHTML = "<h3>Map Type: </h3>" + "<p>" + "Howling Abyss" + "</p>";
 	} else{
 		document.getElementById("mapType").innerHTML = "<h3>Map Type: </h3>" + "<p>" + "Unknown Map!" + "</p>";
@@ -93,15 +106,15 @@ function getMapType() {
 *==================================================================
 */
 function getGameType() {
-	if(responseObj.game.gameType == "NORMAL_GAME") {
+	if(mashObj.game.gameType == "NORMAL_GAME") {
 		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Normal" + "</p>";
-	} else if(responseObj.game.gameType == "RANKED_GAME") {
+	} else if(mashObj.game.gameType == "RANKED_GAME") {
 		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Ranked" + "</p>";
-	} else if(responseObj.game.gameType == "TUTORIAL_GAME") {
+	} else if(mashObj.game.gameType == "TUTORIAL_GAME") {
 		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Tutorial" + "</p>";
-	} else if(responseObj.game.gameType == "CUSTOM_GAME") {
+	} else if(mashObj.game.gameType == "CUSTOM_GAME") {
 		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Custom" + "</p>";
-	} else if(responseObj.game.gameType == "MATCHED_GAME") {
+	} else if(mashObj.game.gameType == "MATCHED_GAME") {
 		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Uknown Matched" + "</p>";
 	} else{
 		document.getElementById("gameType").innerHTML = "<h3>Game Type: </h3>" + "<p>" + "Unkown Game Type!" + "</p>";	
@@ -113,18 +126,16 @@ function getGameType() {
 * getGameMode() RETURNS GAME MODE! (div id = "gameMode") ---DOESN'T SEEM TO WORK, COMMENTED OUT 7/6/14 BY ALFRED
 *==================================================================
 */
-/*
+
 function getGameMode() {
-	if(responseObj.game.gameMode == "CLASSIC"){
+	if(mashObj.game.gameMode == "CLASSIC"){
 		document.getElementById("gameMode").innerHTML = "<h3>Game Mode: </h3>" + "<p>" + "Classic" + "</p>";
-	} else if(responseObj.game.gameMode == "ARAM"){
+	} else if(mashObj.game.gameMode == "ARAM"){
 		document.getElementById("gameMode").innerHTML = "<h3>Game Mode: </h3>" + "<p>" + "ARAM" + "</p>";
 	} else{
 		document.getElementById("gameMode").innerHTML = "<h3>Game Mode: </h3>" + "<p>" + "Unknown Game Mode!" + "</p>";
 	}
 }
-getGameMode();
-*/
 
 /*
 *==================================================================
@@ -132,23 +143,23 @@ getGameMode();
 *==================================================================
 */
 function getTeam1Player1() {
-	document.getElementById("team1Player1").innerHTML = "<h3>Player 1 from Team 1: </h3>" + "<p>" + responseObj.game.teamOne.array[0].summonerName + "</p>";
+	document.getElementById("team1Player1").innerHTML = "<h3>Player 1 from Team 1: </h3>" + "<p>" + mashObj.game.teamOne.array[0].summonerName + "</p>";
 }
 
 function getTeam1Player2() {
-	document.getElementById("team1Player2").innerHTML = "<h3>Player 2 from Team 1: </h3>" + "<p>" + responseObj.game.teamOne.array[1].summonerName + "</p>";
+	document.getElementById("team1Player2").innerHTML = "<h3>Player 2 from Team 1: </h3>" + "<p>" + mashObj.game.teamOne.array[1].summonerName + "</p>";
 }
 
 function getTeam1Player3() {
-	document.getElementById("team1Player3").innerHTML = "<h3>Player 3 from Team 1: </h3>" + "<p>" + responseObj.game.teamOne.array[2].summonerName + "</p>";
+	document.getElementById("team1Player3").innerHTML = "<h3>Player 3 from Team 1: </h3>" + "<p>" + mashObj.game.teamOne.array[2].summonerName + "</p>";
 }
 
 function getTeam1Player4() {
-	document.getElementById("team1Player4").innerHTML = "<h3>Player 4 from Team 1: </h3>" + "<p>" + responseObj.game.teamOne.array[3].summonerName + "</p>";
+	document.getElementById("team1Player4").innerHTML = "<h3>Player 4 from Team 1: </h3>" + "<p>" + mashObj.game.teamOne.array[3].summonerName + "</p>";
 }
 
 function getTeam1Player5() {
-	document.getElementById("team1Player5").innerHTML = "<h3>Player 5 from Team 1: </h3>" + "<p>" + responseObj.game.teamOne.array[4].summonerName + "</p>";
+	document.getElementById("team1Player5").innerHTML = "<h3>Player 5 from Team 1: </h3>" + "<p>" + mashObj.game.teamOne.array[4].summonerName + "</p>";
 }
 
 /*
@@ -157,37 +168,41 @@ function getTeam1Player5() {
 *==================================================================
 */
 function getTeam2Player1() {
-	document.getElementById("team2Player1").innerHTML = "<h3>Player 1 from Team 2: </h3>" + "<p>" + responseObj.game.teamTwo.array[0].summonerName + "</p>";
+	document.getElementById("team2Player1").innerHTML = "<h3>Player 1 from Team 2: </h3>" + "<p>" + mashObj.game.teamTwo.array[0].summonerName + "</p>";
 }
 
 function getTeam2Player2() {
-	document.getElementById("team2Player2").innerHTML = "<h3>Player 2 from Team 2: </h3>" + "<p>" + responseObj.game.teamTwo.array[1].summonerName + "</p>";
+	document.getElementById("team2Player2").innerHTML = "<h3>Player 2 from Team 2: </h3>" + "<p>" + mashObj.game.teamTwo.array[1].summonerName + "</p>";
 }
 
 function getTeam2Player3() {
-	document.getElementById("team2Player3").innerHTML = "<h3>Player 3 from Team 2: </h3>" + "<p>" + responseObj.game.teamTwo.array[2].summonerName + "</p>";
+	document.getElementById("team2Player3").innerHTML = "<h3>Player 3 from Team 2: </h3>" + "<p>" + mashObj.game.teamTwo.array[2].summonerName + "</p>";
 }
 
 function getTeam2Player4() {
-	document.getElementById("team2Player4").innerHTML = "<h3>Player 4 from Team 2: </h3>" + "<p>" + responseObj.game.teamTwo.array[3].summonerName + "</p>";
+	document.getElementById("team2Player4").innerHTML = "<h3>Player 4 from Team 2: </h3>" + "<p>" + mashObj.game.teamTwo.array[3].summonerName + "</p>";
 }
 
 function getTeam2Player5() {
-	document.getElementById("team2Player5").innerHTML = "<h3>Player 5 from Team 2: </h3>" + "<p>" + responseObj.game.teamTwo.array[4].summonerName + "</p>";
+	document.getElementById("team2Player5").innerHTML = "<h3>Player 5 from Team 2: </h3>" + "<p>" + mashObj.game.teamTwo.array[4].summonerName + "</p>";
 }
 
 /*
 *==================================================================
-* getTeam1Player1currRank() - getTeam1Player5currRank() RETURNS PLAYER 1 through 5 Current Season Ranks FROM TEAM 1! (div id = "team1Player1currRank" and so forth)
+* getTierDivision() GETS TIER AND DIVISION OF SUMMONERID (div id = ???)
 *==================================================================
 */
-function getTeam1Player1currRank() {
-//READ SKYPE FOR MORE INFO IF U HAVENT ALREADY	
+function getTierDivision(summonerId) {
+	var link = "https://na.api.pvp.net/api/lol/na/v2.4/league/by-summoner/" + summonerId + "?api_key=" + riotApiKey;
+	var myRequest = new XMLHttpRequest();
+	myRequest.open("GET", apiLink, false);
+	myRequest.send();
+	var tempObj = JSON.parse(myRequest.responseText);
+	return tempObj. //IN WORK
 }
 
 
 
-/*
 *=====================================================================================================================================
 *                                             THIS IS JUST AN EXAMPLE. TESTING PURPOSES!
 *=====================================================================================================================================
