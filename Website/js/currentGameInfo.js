@@ -41,7 +41,20 @@ function processSearch() {
 	summonerName = getQueryVariable("query");
 }
 
-//processSearch();
+processSearch();
+
+/*
+*==================================================================
+* searches for array key
+*==================================================================
+*/
+function lookup(query, array) {
+    for(var i = 0, len = array.length; i < len; i++) {
+        if( array[ i ].key === query )
+            return true;
+    }
+    return false;
+}
 
 var apiLink = "https://community-league-of-legends.p.mashape.com/api/v1.0/NA/summoner/retrieveInProgressSpectatorGameInfo/" + summonerName; 
 //Mashape url for retrieveInProgressSpectatorGameInfo
@@ -189,7 +202,7 @@ function getTeam2Player5() {
 
 /*
 *==================================================================
-* getTierDivision() GETS TIER AND DIVISION OF SUMMONERID (div id = ???)
+* getTierDivision() GETS TIER AND DIVISION OF SUMMONERID (example div id = T1P1TierDivision) <--- stands for the Tier and Division of Team 1 Player 1
 *==================================================================
 */
 function getTierDivision(summonerId) {
@@ -198,7 +211,7 @@ function getTierDivision(summonerId) {
 	myRequest.open("GET", apiLink, false);
 	myRequest.send();
 	var tempObj = JSON.parse(myRequest.responseText);
-	return tempObj. //IN WORK
+	tempObj. //IN WORK
 }
 
 
