@@ -48,12 +48,22 @@ processSearch();
 * searches for array key
 *==================================================================
 */
-function lookup(query, array) {
+function lookup(query, array, marker) {
     for(var i = 0, len = array.length; i < len; i++) {
         if( array[ i ].key === query )
-            return true;
+            marker = i;
     }
-    return false;
+    marker = -1;
+}
+
+/*
+*==================================================================
+* capitalizes first letter of string
+*==================================================================
+*/
+function capitalizeFirstLetter(string)
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 var apiLink = "https://community-league-of-legends.p.mashape.com/api/v1.0/NA/summoner/retrieveInProgressSpectatorGameInfo/" + summonerName; 
@@ -211,7 +221,20 @@ function getTierDivision(summonerId) {
 	myRequest.open("GET", apiLink, false);
 	myRequest.send();
 	var tempObj = JSON.parse(myRequest.responseText);
-	tempObj. //IN WORK
+	//tempObj.summonerId.entries <---- this is the array of players in the league
+	var tier = capitalizeFirstLetter((tempObj.summonerId.tier).toLowerCase());
+	var division = 0;
+	var marker = -1;
+	var teamNum = summonerId.charAt(4);
+	var playerNum = summonerId.charAt(11);
+	
+	lookup(summonerId, tempObj.summonerId.entries, marker);
+	if(marker < 0){
+		document.getElementById("T" + teamNum + "P" + playerNum + "TierDivision").innerHTML = "<h3>Player " + playerNum + " from Team " + teamNum ": </h3>" + "<p>" + Error! + "</p>";
+	}else{
+		division = tempObj.summonerId.entries[marker].division;
+		document.getElementById("T" + teamNum + "P" + playerNum + "TierDivision").innerHTML = "<h3>Player " + playerNum + " from Team " + teamNum ": </h3>" + "<p>" + Error! + "</p>";
+	}
 }
 
 
