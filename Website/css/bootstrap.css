@@ -4370,6 +4370,7 @@ a.list-group-item.active > .badge,
   color: inherit;
   background-color: #eee;
   background: url(../images/finalbanner.png) center no-repeat fixed;
+  background-size: 450px auto;
 }
 .jumbotron h1,
 .jumbotron .h1 {

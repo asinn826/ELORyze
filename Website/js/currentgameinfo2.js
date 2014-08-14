@@ -1,9 +1,7 @@
-//<<<<<<< Updated upstream
-//=======
 var summonerName;
 var mashApiKey = "6ME20pU81BmbLcrJu1dTG8sWuq2B6b2A"; // joon's mashape production api key
-//>>>>>>> Stashed changes
 var riotApiKey = "a3fe81d6-1dbc-4b3b-9155-0064a9a76fbe"; //joon's Riot api key
+var riotApiKey2 = "671a7a2c-2d12-4d1c-a6d1-d13a87be1cb3"; // alfred's other api key
 var mashObject;
 var region = "na";
 var summonerId;
@@ -34,6 +32,7 @@ function processSearch() {
 }
 
 processSearch();
+
 
 /*
 *==================================================================
@@ -66,6 +65,12 @@ function retrieveMashapeInfo() {
 	mashObject = JSON.parse(myRequest.responseText);
 }
 retrieveMashapeInfo();
+
+// // Check for non-null mashape object
+// if (!mashObject.game) {
+// 	document.getElementById("null-search").innerHTML = "Player not in game!";
+// }
+
 
 // Set game Map
 function setMapType() {
@@ -109,18 +114,18 @@ function setGameType() {
 }
 setGameType();
 
-// Set game mode - classic or aram
-// function setGameMode() {
-// 	var gameMode = responseObj.game.gameMode;
-// 	if (gameMode == "CLASSIC") {
-// 		document.getElementById("gameMode").innerHTML = "<p>" + "Classic" + "</p>";
-// 	} else if (gameMode == "ARAM") {
-// 		document.getElementById("gameMode").innerHTML = "<p>" + "ARAM" + "</p>";
-// 	} else {
-// 		document.getElementById("gameMode").innerHTML = "<p>" + "Unknown Game Mode!" + "</p>";
-// 	}
-// }
-// setGameMode();
+//Set game mode - classic or aram
+function setGameMode() {
+	var gameMode = mashObject.game.gameMode;
+	if (gameMode == "CLASSIC") {
+		document.getElementById("gameMode").innerHTML = "<strong>Game Mode: </strong>" + "Classic";
+	} else if (gameMode == "ARAM") {
+		document.getElementById("gameMode").innerHTML = "<strong>Game Mode: </strong>" + "ARAM";
+	} else {
+		document.getElementById("gameMode").innerHTML = "<strong>Game Mode: </strong>" + "Unknown Game Mode!";
+	}
+}
+setGameMode();
 
 /*
 *==================================================================
@@ -146,15 +151,19 @@ function getTeam1Player4() {
 function getTeam1Player5() {
 	document.getElementById("team1Player5").innerHTML = "<p>5. " + mashObject.game.teamOne.array[4].summonerName + "</p>";
 }
+getTeam1Player1();
+getTeam1Player2();
+getTeam1Player3();
+getTeam1Player4();
+getTeam1Player5();
 
-function getTeam1Players() {
-	getTeam1Player1();
-	getTeam1Player2();
-	getTeam1Player3();
-	getTeam1Player4();
-	getTeam1Player5();
-}
-getTeam1Players();
+// function getTeam1Players() {
+// 	for (var i = 0; i <= 4; i++) {
+// 		document.getElementById("team1Player" + (i + 1)).innerHTML = 
+// 		"<p>" + (i + 1) + ". " + mashObject.game.teamOne.array[i].summonerName + "</p>";
+// 	}
+// }
+// getTeam1Players();
 
 /*
 *==================================================================
@@ -189,3 +198,55 @@ function getTeam2Players() {
 	getTeam2Player5();
 }
 getTeam2Players();
+
+/*
+*==================================================================
+* helper to search for array key
+*==================================================================
+*/
+function lookup(query, array, marker) {
+    for(var i = 0, len = array.length; i < len; i++) {
+        if( array[ i ].playerOrTeamId === query )
+            return i;
+    }
+    return -1;
+}
+
+/*
+*==================================================================
+* helper to capitalize first letter of string
+*==================================================================
+*/
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+//var apiLink = "https://community-league-of-legends.p.mashape.com/api/v1.0/NA/summoner/retrieveInProgressSpectatorGameInfo/" + summonerName; 
+//Mashape url for retrieveInProgressSpectatorGameInfo
+
+/*
+*==================================================================
+* getTierDivision() GETS TIER AND DIVISION OF SUMMONERID (example div id = T1P1TierDivision) <--- stands for the Tier and Division of Team 1 Player 1
+*==================================================================
+*/
+function getTierDivision(summonerId) {
+	var link = "https://na.api.pvp.net/api/lol/na/v2.4/league/by-summoner/" + summonerId + "?api_key=" + riotApiKey;
+	var myRequest = new XMLHttpRequest();
+	myRequest.open("GET", apiLink, false);
+	myRequest.send();
+	var tempObj = JSON.parse(myRequest.responseText);
+	//tempObj.summonerId.entries <---- this is the array of players in the league
+	var tier = capitalizeFirstLetter((tempObj.summonerId.tier).toLowerCase());
+	var division = 0;
+	var marker = -1;
+	var teamNum = summonerId.charAt(4);
+	var playerNum = summonerId.charAt(11);
+	
+	marker = lookup(summonerId, tempObj.summonerId.entries, marker);
+	if (marker < 0) {
+		document.getElementById("T1P1TierDivision").innerHTML = "<h3>Player " + playerNum + " from Team " + teamNum ": </h3>" + "<p>Error!</p>";
+	} else {
+		division = tempObj.summonerId.entries[marker].division;
+		document.getElementById("T1P1TierDivision").innerHTML = "<h3>Player " + playerNum + " from Team " + teamNum ": </h3>" + "<p>" + division + "</p>";
+	}
+}
