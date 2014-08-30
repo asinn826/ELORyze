@@ -89,9 +89,16 @@ function retrieveSummonerObject() {
 retrieveSummonerObject();
 
 function getSummonerName() {
-	document.getElementById("summonerName").innerHTML = "<h3>Summoner Name: </h3>" + "<p>" + summonerObject[summonerName].name + "</p>";
+	document.getElementById("summoner-banner").innerHTML = "<h1 class ='banner-center banner-text center'>" + summonerObject[summonerName].name + "</h1>";
 }
-getSummonerName();
+//getSummonerName();
+
+function getSummonerPic() {
+	document.getElementById("summoner-pic").innerHTML = "<div class='banner-text banner-container'>" + 
+	"<img src =" + "'http://avatar.leagueoflegends.com/na/" + summonerName + ".png'>  " + 
+	summonerObject[summonerName].name + "</div>";
+}
+getSummonerPic();
 
 function setSummonerIdVar() {
 	summonerId = summonerObject[summonerName].id;
@@ -101,15 +108,15 @@ setSummonerIdVar();
 function getSummonerId() {
 	document.getElementById("summonerId").innerHTML = "<h3>Summoner Id: </h3>" + "<p>" + summonerObject[summonerName].id + "</p>";
 }
-getSummonerId();
+//getSummonerId();
 
 function getSummonerIconNum() {
 	document.getElementById("summonerIconNum").innerHTML = "<h3>Summoner Icon Number: </h3>" + "<p>" + summonerObject[summonerName].profileIconId + "</p>";
 }
-getSummonerIconNum();
+//getSummonerIconNum();
 
 function getSummonerLvl() {
-	document.getElementById("summonerLvl").innerHTML = "<h3>Summoner Level: </h3>" + "<p>" + summonerObject[summonerName].summonerLevel + "</p>";
+	document.getElementById("summoner-level").innerHTML = "Level " + summonerObject[summonerName].summonerLevel;
 }
 getSummonerLvl();
 

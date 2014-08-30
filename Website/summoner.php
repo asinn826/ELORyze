@@ -32,7 +32,7 @@
 			//Check query, then display the summonerId, the ISE, and the time of last update
 			$info = mysql_fetch_array($queryExecute);
 			if(!$info) {echo "This Summoner does not exist in our database yet!";}
-			else{
+			else {
 				print ("<b>SummonerId:</b> ".$info['summonerId'] . "<br>"); 
 				print ("<b>ISE:</b> ".$info['ELO'] . "<br>"); 
 				print ("<b>Time of last update:</b> ".$info['last_update'] . "<br>"); 
