@@ -1,12 +1,9 @@
 .banner-center-main {
-    align-content: center;
-    background-size: 100%;
     background-position: center;
-    background: url(../images/finalbanner.png) top center no-repeat;
-    background-size: 600px auto;
-    margin: 25px auto 25px;
-    padding-top: 200px;
-    padding-bottom: 150px;
+    background: url(../images/finalbanner.png) no-repeat center;
+   /* background-size: 600px auto;*/
+    padding-top: 300px;
+    padding-bottom: 350px;
 }
 .banner-center {
     align-content: center;
