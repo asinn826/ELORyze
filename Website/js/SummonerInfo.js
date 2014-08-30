@@ -136,10 +136,10 @@ function retrieveStatsObject() {
 retrieveStatsObject();
 
 function getSummonerRankedStats() {
-	document.getElementById("rankedwins").innerHTML = "<h3>Ranked Wins: </h3>" + "<p>" + summonerStats.playerStatSummaries[4].wins + "</p>";
-	document.getElementById("rankedlosses").innerHTML = "<h3>Ranked Losses: </h3>" + "<p>" + summonerStats.playerStatSummaries[4].losses + "</p>";
-	document.getElementById("rankedkills").innerHTML = "<h3>Ranked Kills: </h3>" + "<p>" + summonerStats.playerStatSummaries[4].aggregatedStats.totalChampionKills + "</p>";
-	document.getElementById("rankedassists").innerHTML = "<h3>Ranked Assists: </h3>" + "<p>" + summonerStats.playerStatSummaries[4].aggregatedStats.totalAssists + "</p>";
+	document.getElementById("rankedwins").innerHTML = "<h3>Ranked Wins: </h3>" + "<p>" + summonerStats.playerStatSummaries[5].wins + "</p>";
+	document.getElementById("rankedlosses").innerHTML = "<h3>Ranked Losses: </h3>" + "<p>" + summonerStats.playerStatSummaries[5].losses + "</p>";
+	document.getElementById("rankedkills").innerHTML = "<h3>Ranked Kills: </h3>" + "<p>" + summonerStats.playerStatSummaries[5].aggregatedStats.totalChampionKills + "</p>";
+	document.getElementById("rankedassists").innerHTML = "<h3>Ranked Assists: </h3>" + "<p>" + summonerStats.playerStatSummaries[5].aggregatedStats.totalAssists + "</p>";
 }
 getSummonerRankedStats();
 
