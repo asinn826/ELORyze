@@ -136,17 +136,25 @@ function retrieveStatsObject() {
 retrieveStatsObject();
 
 function getSummonerRankedStats() {
-	document.getElementById("rankedwins").innerHTML = "<h3>Ranked Wins: </h3>" + "<p>" + summonerStats.playerStatSummaries[8].wins + "</p>";
-	document.getElementById("rankedlosses").innerHTML = "<h3>Ranked Losses: </h3>" + "<p>" + summonerStats.playerStatSummaries[8].losses + "</p>";
-	document.getElementById("rankedkills").innerHTML = "<h3>Ranked Kills: </h3>" + "<p>" + summonerStats.playerStatSummaries[8].aggregatedStats.totalChampionKills + "</p>";
-	document.getElementById("rankedassists").innerHTML = "<h3>Ranked Assists: </h3>" + "<p>" + summonerStats.playerStatSummaries[8].aggregatedStats.totalAssists + "</p>";
+	for (var i in summonerStats.playerStatSummaries) {
+		if (summonerStats.playerStatSummaries[i].playerStatSummaryType == "RankedSolo5x5") {
+			document.getElementById("rankedwins").innerHTML = "<h3>Ranked Wins: </h3>" + "<p>" + summonerStats.playerStatSummaries[i].wins + "</p>";
+			document.getElementById("rankedlosses").innerHTML = "<h3>Ranked Losses: </h3>" + "<p>" + summonerStats.playerStatSummaries[i].losses + "</p>";
+			document.getElementById("rankedkills").innerHTML = "<h3>Ranked Kills: </h3>" + "<p>" + summonerStats.playerStatSummaries[i].aggregatedStats.totalChampionKills + "</p>";
+			document.getElementById("rankedassists").innerHTML = "<h3>Ranked Assists: </h3>" + "<p>" + summonerStats.playerStatSummaries[i].aggregatedStats.totalAssists + "</p>";
+		}
+	}	
 }
 getSummonerRankedStats();
 
 function getSummonerNormalsStats() {
-	document.getElementById("normsWins").innerHTML = "<h3>Normal Wins: </h3>" + "<p>" + summonerStats.playerStatSummaries[12].wins + "</p>";
-	document.getElementById("normsKills").innerHTML = "<h3>Normal Champion Kills: </h3>" + "<p>" + summonerStats.playerStatSummaries[12].aggregatedStats.totalChampionKills + "</p>";
-	document.getElementById("normsCS").innerHTML = "<h3>Normal Minion Kills: </h3>" + "<p>" + summonerStats.playerStatSummaries[12].aggregatedStats.totalMinionKills + "</p>";
-	document.getElementById("normsAssists").innerHTML = "<h3>Normal Assists: </h3>" + "<p>" + summonerStats.playerStatSummaries[12].aggregatedStats.totalAssists + "</p>";
+	for (var i in summonerStats.playerStatSummaries) {
+		if (summonerStats.playerStatSummaries[i].playerStatSummaryType == "Unranked") {
+			document.getElementById("normsWins").innerHTML = "<h3>Normal Wins: </h3>" + "<p>" + summonerStats.playerStatSummaries[8].wins + "</p>";
+			document.getElementById("normsKills").innerHTML = "<h3>Normal Champion Kills: </h3>" + "<p>" + summonerStats.playerStatSummaries[8].aggregatedStats.totalChampionKills + "</p>";
+			document.getElementById("normsCS").innerHTML = "<h3>Normal Minion Kills: </h3>" + "<p>" + summonerStats.playerStatSummaries[8].aggregatedStats.totalMinionKills + "</p>";
+			document.getElementById("normsAssists").innerHTML = "<h3>Normal Assists: </h3>" + "<p>" + summonerStats.playerStatSummaries[8].aggregatedStats.totalAssists + "</p>";
+		}
+	}
 }
 getSummonerNormalsStats();
