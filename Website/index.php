@@ -28,7 +28,7 @@
 <body class=" center main-font">
 <h1> 
 <?php 
-	$val = mt_rand(1,5);
+	$val = mt_rand(1,6);
 	switch ($val) {
 		case 1: 
 			echo 'An all new way to determine your skill!';
@@ -45,6 +45,9 @@
 		case 5:
 		default:
 			echo 'An all new League of Legends search experience';
+			break;
+		case 6:
+			echo 'Joon is gay';
 			break;
 	}
  ?>
