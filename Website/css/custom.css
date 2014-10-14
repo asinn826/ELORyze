@@ -89,3 +89,10 @@
 .summoner-level {
     width: 102%;
 }
+
+.troll-text {
+    font-size: 12pt;
+    text-align: center;
+    width: 80%;
+    color: #f0eeee;
+}

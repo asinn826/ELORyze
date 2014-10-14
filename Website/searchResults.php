@@ -42,6 +42,10 @@
       </a>
     </div>
 
+<!--     <div class="troll-text">
+    Joon is gay
+    </div> -->
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse float-right" id="bs-example-navbar-collapse-1">
       <form action="searchResults.php" method="get" class="navbar-form navbar-left" role="search">
@@ -73,11 +77,13 @@
 		<div id="summonerIconNum"></div>
 	</div>
 
+	<!-- <div id="skillLevel" class="center"></div> -->
+
 	<div id="ise-info" class="center">
 		<hr class="line-dark">	
-		<h2><strong>Your ISE</strong></h2>
+		<h2><strong>Individual Skill Level</strong></h2>
 		<hr class="line-dark">
-		<div>Insert ISE Stuff here</div>
+		<div id="skillLevel"></div>
 		<div class="left-align">
 		<ul>
 			<li>Something</li>
@@ -117,7 +123,7 @@
     </div>
 
 <!-- JavaScript -->
-<script src="./js/summonerinfo.js"></script>
+<script src="./js/summonerinfo-joon.js"></script>
 
 </body>
 </html>
