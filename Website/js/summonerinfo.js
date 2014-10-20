@@ -10,6 +10,7 @@ var summonerObject;
 var summonerStats;
 var leagueStats;
 var matchHistory;
+var theKey;
 
 	/*
 
@@ -77,6 +78,14 @@ function processSearch() {
 }
 
 processSearch();
+
+
+// Pseudorng for picking api key
+function chooseKey() {
+	var keyNum = Math.floor((Math.random() * 4))
+	theKey = apiKeys[keyNum];
+}
+chooseKey();
 	
 /*
 *==================================================================
@@ -85,7 +94,7 @@ processSearch();
 */
 
 function retrieveSummonerObject() {
-	var APIlink = "https://" + region + ".api.pvp.net/api/lol/" + region + "/v1.4/summoner/by-name/" + summonerName + "?api_key=" + apiKeys[Math.floor((Math.random() * 4))];
+	var APIlink = "https://" + region + ".api.pvp.net/api/lol/" + region + "/v1.4/summoner/by-name/" + summonerName + "?api_key=" + theKey;
 	var myRequest = new XMLHttpRequest();
 	myRequest.open("GET", APIlink, false);
 	myRequest.send();
@@ -132,7 +141,7 @@ getSummonerLvl();
 */
 
 function retrieveStatsObject() {
-	var APIlink = "https://na.api.pvp.net/api/lol/na/v1.3/stats/by-summoner/" + summonerId + "/summary?season=SEASON4&api_key="+ apiKeys[Math.floor((Math.random() * 4))];
+	var APIlink = "https://na.api.pvp.net/api/lol/na/v1.3/stats/by-summoner/" + summonerId + "/summary?season=SEASON4&api_key="+ theKey;
 	var myRequest = new XMLHttpRequest();
 	myRequest.open("GET", APIlink, false);
 	myRequest.send();
@@ -171,7 +180,7 @@ getSummonerNormalsStats();
 */
 
 function retrieveLeagueStatsObject() {
-	var APIlink = "https://" + region + ".api.pvp.net/api/lol/" + region + "/v2.5/league/by-summoner/" + summonerId + "?api_key=" + apiKeys[Math.floor((Math.random() * 4))];
+	var APIlink = "https://" + region + ".api.pvp.net/api/lol/" + region + "/v2.5/league/by-summoner/" + summonerId + "?api_key=" + theKey;
 	var myRequest = new XMLHttpRequest();
 	myRequest.open("GET", APIlink, false);
 	myRequest.send();
@@ -180,7 +189,7 @@ function retrieveLeagueStatsObject() {
 retrieveLeagueStatsObject();
 
 function retrieveMatchHistoryObject() {
-	var APIlink = "https://" + region + ".api.pvp.net/api/lol/" + region + "/v2.2/matchhistory/" + summonerId + "?api_key=" + apiKeys[Math.floor((Math.random() * 4))];
+	var APIlink = "https://" + region + ".api.pvp.net/api/lol/" + region + "/v2.2/matchhistory/" + summonerId + "?api_key=" + theKey;
 	var myRequest = new XMLHttpRequest();
 	myRequest.open("GET", APIlink, false);
 	myRequest.send();
