@@ -12,6 +12,9 @@
 	<link rel="icon" href="favicons/favicon-new.ico">
 	<link rel="apple-touch-icon" sizes="64x64" href="favicons/favicon-new.png">
 
+	<!-- Google Font -->
+	<link href='http://fonts.googleapis.com/css?family=Teko:400,300' rel='stylesheet' type='text/css'>
+	
 	<!-- Google Analytics Script -->
 	<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -28,7 +31,7 @@
 <body class=" center main-font">
 <h1> 
 <?php 
-	$val = mt_rand(1,6);
+	$val = mt_rand(1,5);
 	switch ($val) {
 		case 1: 
 			echo 'An all new way to determine your skill!';
@@ -45,9 +48,6 @@
 		case 5:
 		default:
 			echo 'An all new League of Legends search experience';
-			break;
-		case 6:
-			echo 'Joon is gay';
 			break;
 	}
  ?>

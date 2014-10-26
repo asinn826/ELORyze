@@ -12,6 +12,8 @@
 	<link rel="icon" href="favicons/favicon-new.ico">
 	<link rel="apple-touch-icon" sizes="64x64" href="favicons/favicon-new.png">
 
+	<!-- Google Font -->
+	<link href='http://fonts.googleapis.com/css?family=Teko:400,300' rel='stylesheet' type='text/css'>
 
 	<!-- Google Analytics Script -->
 	<script>
@@ -123,7 +125,7 @@
     </div>
 
 <!-- JavaScript -->
-<script src="./js/summonerinfo-joon.js"></script>
+<script src="./js/summonerinfo.js"></script>
 
 </body>
 </html>

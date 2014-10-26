@@ -18,7 +18,7 @@
 
 .banner-text {
     font-size: 48pt;
-    font-family: "Agency FB", sans-serif;
+    font-family: "Teko", sans-serif;
     font-weight: 600;
 }
 
@@ -66,8 +66,9 @@
 }
 
 .main-font {
-	font-family: "Agency FB", sans-serif;
+	font-family: 'Teko', sans-serif;
     font-size: 24pt;
+    font-weight: 300;
 }
 
 .navbar-btn {
